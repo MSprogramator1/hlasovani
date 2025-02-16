@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hlasování</title>
+</head>
+<body>
+    <h1>Hlasování</h1>
+    <br>
+    <button>děti</button>
+    <button>admin</button>
+
+    <br>
+    <input type="text" placeholder="zadejte hlasovanou věc" id="vec">
+    <button onclick="admin()">přidat</button>
+    <br>
+    <h2>otazky</h2>
+    <b id="otazky"></b>
+    <br>
+    <h2>děti</h2>
+    <input type="text" id="h">
+    <input type="hidden" id="id">
+    <br>
+    <h2>odpovědi</h2>
+    <B id="odpovedi"></B>
+    <br>
+    <input type="text" placeholder="jméno ditete" id="deti">
+    <button onclick="deti()">odeslat Hlasování</button>
+    <br>
+    <br>
+    <button onclick="smazSubory()">konec Hlasování</button>
+
+    
+    <script src="./script.js"></script>
+</body>
+</html>
