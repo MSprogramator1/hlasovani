@@ -8,12 +8,6 @@ let dite = [];
 exports.server = function(vstup,parametry,vistup){
     if(vstup.url.startsWith("/Hlasovani/deti")){
 
-        let fileExists = fs.existsSync(soubor);
-            
-         if (!fileExists) {
-            dite = [];
-        }
-
         let ha = {};
         ha.deti = parametry.deti;
         ha.vec = parametry.vec;
@@ -27,5 +21,12 @@ exports.server = function(vstup,parametry,vistup){
         vistup.end(JSON.stringify(o));
 
         fs.writeFileSync(soubor, JSON.stringify(dite, null, 2));
+
+    } else if(vstup.url.startsWith("/deti/nac")){
+        
+        vistup.writeHead(200, {"Content-type": "application/json"});
+        let o = {};
+        o.dite = dite;
+        vistup.end(JSON.stringify(o));
     }
 }

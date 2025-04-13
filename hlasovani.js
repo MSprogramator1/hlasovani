@@ -28,12 +28,30 @@ exports.server = function(vstup,parametry,vistup){
         console.log(hlas)
         
 
+          vistup.writeHead(200, {"Content-type": "application/json"});
+          let o = {};
+          o.hlasovani = hlas;
+          o.id = generuj();
+          vistup.end(JSON.stringify(o));
+
+        fs.writeFileSync(soubor, JSON.stringify(hlas, null, 2));
+
+
+
+    } else if(vstup.url.startsWith("/Hlasovani/nacti")){
+
+      let fileExists = fs.existsSync(soubor);
+
+      if (!fileExists) {
+        hlas = [];
+      }
+
+      data = fs.readFileSync(soubor);
+
         vistup.writeHead(200, {"Content-type": "application/json"});
         let o = {};
         o.hlasovani = hlas;
         o.id = generuj();
         vistup.end(JSON.stringify(o));
-
-        fs.writeFileSync(soubor, JSON.stringify(hlas, null, 2));
     }
 }

@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "generate-unique-id": "^2.0.3",
+    "node": "^23.7.0"
+  }
+}

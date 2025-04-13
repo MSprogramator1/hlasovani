@@ -5,31 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hlasování</title>
 </head>
-<body>
+<body onload="ponacteni3()">
     <h1>Hlasování</h1>
     <br>
-    <button>děti</button>
-    <button>admin</button>
-
+    <div id="lidi">
+        <input type="text" placeholder="zadejte svoje jméno" id="jmeno">
+        <button onclick="prihlastSE()" id=" připojit">připojit se </button>
+    </div>
     <br>
     <input type="text" placeholder="zadejte hlasovanou věc" id="vec">
-    <button onclick="admin()">přidat</button>
+    <button onclick="admin()" id="přidat">přidat</button>
     <br>
     <h2>otazky</h2>
     <b id="otazky"></b>
     <br>
-    <h2>děti</h2>
+    <h2 id="D">děti</h2>
     <input type="text" id="h">
     <input type="hidden" id="id">
     <br>
-    <h2>odpovědi</h2>
+    <h2 id="h2">odpovědi</h2>
+    
     <B id="odpovedi"></B>
+    
     <br>
     <input type="text" placeholder="jméno ditete" id="deti">
-    <button onclick="deti()">odeslat Hlasování</button>
+    <button onclick="deti()" id="odeslatH">odeslat Hlasování</button>
     <br>
     <br>
-    <button onclick="smazSubory()">konec Hlasování</button>
+    <button onclick="smazSubory()" id="konec">konec Hlasování</button>
 
     
     <script src="./script.js"></script>

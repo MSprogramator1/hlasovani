@@ -40,7 +40,18 @@ if(vstup.url.startsWith("/Hlasovani/admin")){
    hlasovani(vstup,parametry,vistup);
 }
 
+if(vstup.url.startsWith("/Hlasovani/nacti")){
+   console.log("nacti soubory");
+   hlasovani(vstup,parametry,vistup);
+
+}
+
 if(vstup.url.startsWith("/Hlasovani/deti")){
+   console.log("deti");
+   deti(vstup,parametry,vistup);
+}
+
+if(vstup.url.startsWith("/deti/nact")){
    console.log("detii");
    deti(vstup,parametry,vistup);
 }
@@ -48,14 +59,17 @@ if(vstup.url.startsWith("/Hlasovani/deti")){
 if(vstup.url.startsWith("/Hlasovani/smazSoubory")){
    console.log("smaz soubory");
    smazSoubory(vstup,vistup);
-
 }
+
+
   } else {                                                     
                                      
   }                                                                                     
 })                            
 
 }
+
+
 
  if(vstup.url == "/"){
     vistup.writeHead(200,{"Content-type":"text/html"});
