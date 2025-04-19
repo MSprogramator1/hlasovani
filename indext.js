@@ -7,6 +7,7 @@ const fs = require("fs");
 const hlasovani = require('./hlasovani.js').server;
 const deti = require("./deti.js").server;
 const smazSoubory = require('./smaz soubory.js').server;
+const prihlase = require("./prihlasit se.js").server;
 
 let serverms = http.createServer(server);
 let port = 3030;
@@ -51,9 +52,14 @@ if(vstup.url.startsWith("/Hlasovani/deti")){
    deti(vstup,parametry,vistup);
 }
 
-if(vstup.url.startsWith("/deti/nact")){
+if(vstup.url.startsWith("/deti/nacti")){
    console.log("detii");
    deti(vstup,parametry,vistup);
+}
+
+if(vstup.url.startsWith("/prihlase")){
+   console.log("prihlase");
+   prihlase(vstup,parametry,vistup);
 }
 
 if(vstup.url.startsWith("/Hlasovani/smazSoubory")){

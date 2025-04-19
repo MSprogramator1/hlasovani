@@ -4,11 +4,12 @@ function ponacteni3(){
 }
 
 
-  
  async function prihlastSE(){
-  let prihlasit = document.getElementById("jmeno").value;
-  console.log(prihlasit);
- 
+  let  prihlasit = document.getElementById("jmeno").value;
+  
+  
+
+
   if(prihlasit == "Aleš"){
     alesAdmint();
    
@@ -18,6 +19,24 @@ function ponacteni3(){
     detiHlasovali();
   }
   
+  let Hlasovani = {};
+  Hlasovani.jmeno = prihlasit;
+  
+  let url = location.href + "prihlase";
+    console.log(url);
+    let re = await fetch(url,{method: "POST",body: JSON.stringify(Hlasovani)});
+    let data = await re.json();
+    console.log(data);
+    dohromady(data);
+}
+
+function dohromady(data){
+  let jmeno2 = data.jmeno;
+  console.log(jmeno2);
+  
+  let vipis = document.getElementById("deti").value = jmeno2;
+  vipis.innerHTML;
+
 }
 
 async function ponacteni() {
@@ -30,7 +49,7 @@ async function ponacteni() {
 
 async function ponacteni2() {
   let H = {};
-  let url = location.href + "deti/nact";
+  let url = location.href + "deti/nacti";
   let re = await fetch(url,{method: "POST",body: JSON.stringify(H)});
   let data = await re.json();
   nactiOdpovedi(data);
@@ -68,8 +87,8 @@ function nactiOtazky(data){
   console.log(deti);
 
   let Hlasovani = {};
-  Hlasovani.deti = deti;
   Hlasovani.vec = vec;
+  Hlasovani.deti = deti;
 
   let url = location.href + "Hlasovani/deti";
   console.log(url);
@@ -83,14 +102,12 @@ function nactiOtazky(data){
 function nactiOdpovedi(data){
   let odpoved = "";
   for(let odpovedi of data.dite){
-    odpoved = odpovedi.deti + "<br>"+ odpovedi.vec + "<br><br>" + odpoved
+    odpoved = odpovedi.jmeno + "<br>"+ odpovedi.vec + "<br><br>" + odpoved
   }
   
   let odpovediVipis = document.getElementById("odpovedi");
   odpovediVipis.innerHTML = odpoved;
 }
-
-
 
 async function smazSubory(){
 let o = {}
@@ -119,7 +136,7 @@ vec = document.getElementById("h").value = "";
 }
 
 function smazText(){
-   document.getElementById("ve").value = ""; 
+   document.getElementById("vec").value = ""; 
 }
 
 function smazPole(){
@@ -150,7 +167,6 @@ function detiHlasovali(){
   document.getElementById("přidat").style.display = "none";
   document.getElementById("přidat").style.display = "none";
   document.getElementById("odpovedi").style.display = "none";
-  document.getElementById("deti").style.display = "none";
   document.getElementById("konec").style.display = "none";
   document.getElementById("h2").style.display = "none";
 }
