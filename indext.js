@@ -16,8 +16,7 @@ let port = 3030;
 
 let html = fs.readFileSync("./indext.html");
 let js = fs.readFileSync("./script.js");
-//let sipka = fs.readFileSync("./šipka.png");
-//let css = fs.readFileSync("./style.css");
+let css = fs.readFileSync("./style.css");
 
 // funce na servu
 function server(vstup,vistup){
@@ -83,15 +82,16 @@ if(vstup.url.startsWith("/Hlasovani/smazSoubory")){
     vistup.end(html);
  }
 
- if (vstup.url == "/script.js") {
-    vistup.writeHead(200,{"Content-type": "application/javascript"});
-    vistup.end(js);
+ if (vstup.url == "/style.css") {
+    vistup.writeHead(200,{"Content-type": "text/css"});
+    vistup.end(css);
 }
 
-/*if(vstup.url == "/favicon.ico"){
-   vistup.writeHead(200,{"Content-type":"image/png"});
-   vistup.end(sipka);
+if (vstup.url == "/script.js") {
+   vistup.writeHead(200,{"Content-type": "application/javascript"});
+   vistup.end(js);
 }
-*/
+
+
 }
 serverms.listen(port);

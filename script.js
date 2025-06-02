@@ -1,4 +1,5 @@
 function ponacteni3(){
+    poStartu();
     ponacteni();
     ponacteni2();
 }
@@ -12,7 +13,7 @@ function ponacteni3(){
 
   if(prihlasit == "Aleš"){
     alesAdmint();
-   
+    return;
   }
 
    else if(prihlasit){
@@ -33,10 +34,9 @@ function ponacteni3(){
 function dohromady(data){
   let jmeno2 = data.jmeno;
   console.log(jmeno2);
-  
+
   let vipis = document.getElementById("deti").value = jmeno2;
   vipis.innerHTML;
-
 }
 
 async function ponacteni() {
@@ -58,6 +58,7 @@ async function ponacteni2() {
 async function admin() {
     let hlasovanaVec = document.getElementById("vec").value;
     console.log(hlasovanaVec);
+    alert( "vaše otázka  "+ hlasovanaVec + "  je uložena");
 
     let Hlasovani = {};
     Hlasovani.hlasovanaVec = hlasovanaVec;
@@ -78,6 +79,8 @@ function nactiOtazky(data){
 }
   let otazkyVipis = document.getElementById("otazky");
   otazkyVipis.innerHTML = o;
+  let otazkyVipis3 = document.getElementById("otazky3");
+  otazkyVipis3.innerHTML = o;
 }
 
  async function deti(){
@@ -85,6 +88,8 @@ function nactiOtazky(data){
   let vec = document.getElementById("h").value;
   console.log(vec);
   console.log(deti);
+  alert(deti +"  tvůj hlas  " + vec + "  je odeslaný na vyhodnocení");
+  poStartu();
 
   let Hlasovani = {};
   Hlasovani.vec = vec;
@@ -113,6 +118,7 @@ async function smazSubory(){
 let o = {}
 o.o = "o";
 
+smazPole();
 let url = location.href + "Hlasovani/smazSoubory";
 console.log(url);
 let re = await fetch(url,{method: "POST",body: JSON.stringify(o)});
@@ -152,21 +158,20 @@ function ukazOdpovedy(){
 document.getElementById("odpovedi").style.display = "block";
 }
 
+function poStartu(){
+  document.getElementById("lidi").style.display = "block";
+  document.getElementById("admin").style.display = "none";
+  document.getElementById("D2").style.display = "none";
+}
 
 function alesAdmint(){
   document.getElementById("lidi").style.display = "none";
-  document.getElementById("D").style.display = "none";
-  document.getElementById("h").style.display = "none";
-  document.getElementById("deti").style.display = "none";
-  document.getElementById("odeslatH").style.display = "none";
+  document.getElementById("admin").style.display = "block";
+  document.getElementById("D2").style.display = "none";
 }
 
-function detiHlasovali(){    
+function detiHlasovali(){ 
   document.getElementById("lidi").style.display = "none";
-  document.getElementById("vec").style.display = "none";
-  document.getElementById("přidat").style.display = "none";
-  document.getElementById("přidat").style.display = "none";
-  document.getElementById("odpovedi").style.display = "none";
-  document.getElementById("konec").style.display = "none";
-  document.getElementById("h2").style.display = "none";
+  document.getElementById("admin").style.display = "none";
+  document.getElementById("D2").style.display = "block";   
 }

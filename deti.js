@@ -7,7 +7,12 @@ let dite = [];
 
 exports.server = function(vstup,parametry,vistup){
     if(vstup.url.startsWith("/Hlasovani/deti")){
-
+         let fileExists = fs.existsSync(soubor);
+        
+        if (!fileExists) {
+            dite = [];
+         }
+         
         let ha = {};
         ha.jmeno = parametry.deti;
         ha.vec = parametry.vec;

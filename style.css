@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+}
+
+#lidi{
+     position: absolute;
+     left: 50%;
+     top: 50%;
+     transform: translate(-50%,-50%);
+}
+
+#admin{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+
+#D2{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);  
+}
+
+#konec{
+    position: absolute;
+    left: 76%;
+}

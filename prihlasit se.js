@@ -15,6 +15,12 @@ let hlas = [];
 exports.server = function(vstup,parametry,vistup){
     if(vstup.url.startsWith("/prihlase")){
 
+       let fileExists = fs.existsSync(soubor);
+      
+          if (!fileExists) {
+              hlas = [];
+          }
+          
         let ha = {};
         ha.jmeno = parametry.jmeno;
         ha.id = generuj();

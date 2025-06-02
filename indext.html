@@ -3,37 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="./style.css">
     <title>Hlasování</title>
 </head>
 <body onload=" ponacteni3()">
     <h1>Hlasování</h1>
     <br>
+    
     <div id="lidi">
         <input type="text" placeholder="zadejte svoje jméno" id="jmeno">
         <button onclick="prihlastSE()" id=" připojit">připojit se </button>
     </div>
     <br>
-    <input type="text" placeholder="zadejte hlasovanou věc" id="vec">
-    <button onclick="admin()" id="přidat">přidat</button>
-    <br>
-    <h2>otazky</h2>
-    <b id="otazky"></b>
-    <br>
-    <h2 id="D">děti</h2>
-    <input type="text" id="h">
-    <input type="hidden" id="id">
-    <input type="hidden" id="id2">
-    <br>
-    <h2 id="h2">odpovědi</h2>
+
+    <div id="admin">
+        <input type="text" placeholder="zadejte hlasovanou věc" id="vec">
+        <button onclick="admin()" id="přidat">přidat</button>
+        
+        <br>
+        <br>
+        <button id="konec" onclick="smazSubory()">konec</button>
+        <br>
+        <br>
+        <h2>otazky</h2>
+        <b id="otazky"></b> 
+        <br>
+        <br>
+        <h2 id="h2">odpovědi</h2>
     
-    <B id="odpovedi"></B>
+        <B id="odpovedi"></B>
+    </div>
+    
+    <div id="otazky2">
+        
+    </div>
     
     <br>
-    <input type="text" id="deti">
-    <button onclick="deti()" id="odeslatH">odeslat Hlasování</button>
-    <br>
-    <br>
-    <button onclick="smazSubory()" id="konec">konec Hlasování</button>
+    <div>
+
+    <div id="D2">
+         <h2 id="D">děti</h2>
+         <h2>otazky</h2>
+         <b id="otazky3"></b>
+            <br>
+            <br>
+         <input type="text" id="h">
+         <input type="hidden" id="id">
+         <input type="hidden" id="id2">
+         <br>
+         <br>
+        <input type="text" id="deti">
+        <button onclick="deti()" id="odeslatH">odeslat Hlasování</button>
+        <br>
+        
+    </div>
+   
 
     
     <script src="./script.js"></script>
